@@ -4,7 +4,7 @@ SRCS		=	main.cpp \
 OBJS		= ${SRCS:.cpp=.o}
 CPPC		= clang++
 CPPFLAGS	= -Wall -Wextra -Werror
-NAME		= zombies
+NAME		= horde
 RM			= rm -f
 
 %.o :		%.cpp

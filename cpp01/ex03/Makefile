@@ -1,8 +1,11 @@
-SRCS		=	main.cpp
+SRCS		=	main.cpp \
+				Weapon.cpp \
+				HumanA.cpp \
+				HumanB.cpp
 OBJS		= ${SRCS:.cpp=.o}
 CPPC		= clang++
 CPPFLAGS	= -Wall -Wextra -Werror
-NAME		= brainz
+NAME		= weapons
 RM			= rm -f
 
 %.o :		%.cpp
