@@ -21,5 +21,7 @@ Point::~Point(void)
 Point
 	&Point::operator=(Point const &rhs)
 {
-
+	this->_x.setRawBits(rhs._x.getRawBits());
+	//this->_y.setRawBits(rhs._y.getRawBits());
+	return (*this);
 }
