@@ -8,8 +8,8 @@ class Template {
 public:
 
 	Template(void);
-	Template(Template const &src);
 	~Template(void);
+	Template(Template const &src);
 	Template	&operator=(Template const &rhs);
 
 private:
