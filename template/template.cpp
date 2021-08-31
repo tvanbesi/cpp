@@ -14,7 +14,8 @@ Template::Template(Template const &src)
 }
 
 Template
-	Template::&operator=(Template const &rhs)
+	&Template::operator=(Template const &rhs)
 {
 	//copy members
+	return (*this);
 }
