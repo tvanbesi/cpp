@@ -7,7 +7,7 @@ SRCS		=	main.cpp \
 OBJS		= ${SRCS:.cpp=.o}
 CPPC		= clang++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME		= amateria
+NAME		= ex03
 RM			= rm -f
 
 %.o :		%.cpp

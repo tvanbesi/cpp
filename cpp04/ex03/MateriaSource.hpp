@@ -8,7 +8,9 @@ class MateriaSource : public IMateriaSource {
 public:
 
 	MateriaSource(void);
-	virtual ~MateriaSource();
+	virtual ~MateriaSource(void);
+	MateriaSource(MateriaSource const &src);
+	MateriaSource		&operator=(MateriaSource const &rhs);
 	virtual void		learnMateria(AMateria *);
 	virtual AMateria	*createMateria(std::string const &type);
 

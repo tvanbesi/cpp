@@ -6,11 +6,39 @@
 MateriaSource::MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++)
-		_m[i] = NULL;
+		_m[i] = 0;
 }
 
 MateriaSource::~MateriaSource(void)
 {
+	for (int i = 0; i < 4; i++)
+		delete _m[i];
+}
+
+MateriaSource::MateriaSource(MateriaSource const &src)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (src._m[i])
+			_m[i] = src._m[i]->clone();
+		else
+			_m[i] = 0;
+	}
+}
+
+MateriaSource
+	&MateriaSource::operator=(MateriaSource const &rhs)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_m[i])
+			delete _m[i];
+		if (rhs._m[i])
+			_m[i] = rhs._m[i]->clone();
+		else
+			_m[i] = 0;
+	}
+	return (*this);
 }
 
 void
@@ -35,5 +63,5 @@ AMateria
 			return (_m[i]->clone());
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

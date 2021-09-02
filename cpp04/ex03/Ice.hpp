@@ -8,7 +8,7 @@ class Ice : public AMateria {
 public:
 
 	Ice(void);
-	~Ice(void);
+	virtual ~Ice(void);
 	Ice(Ice const &src);
 	virtual AMateria	*clone(void) const;
 	virtual void		use(ICharacter &target);

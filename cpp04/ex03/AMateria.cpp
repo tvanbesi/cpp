@@ -13,8 +13,14 @@ AMateria::~AMateria(void)
 }
 
 AMateria::AMateria(AMateria const &src)
+: _type(src._type)
 {
-	*this = src;
+}
+
+AMateria
+	&AMateria::operator=(AMateria const &)
+{
+	return (*this);
 }
 
 std::string const
