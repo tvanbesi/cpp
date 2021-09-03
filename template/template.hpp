@@ -1,7 +1,7 @@
 #ifndef TEMPLATE_HPP
 # define TEMPLATE_HPP
 
-//# include <iostream>
+# include <iostream>
 
 class Template {
 
@@ -16,6 +16,6 @@ private:
 
 };
 
-//std::ostream	&operator<<(std::ostream &o, Template const &i);
+std::ostream	&operator<<(std::ostream &o, Template const &i);
 
 #endif

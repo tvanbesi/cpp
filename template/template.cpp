@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Template.hpp"
 
 Template::Template(void)
@@ -10,7 +12,7 @@ Template::~Template(void)
 
 Template::Template(Template const &src)
 {
-	*this = src;
+	//*this = src; //Shallow copy
 }
 
 Template
@@ -18,4 +20,11 @@ Template
 {
 	//copy members
 	return (*this);
+}
+
+std::ostream
+	&operator<<(std::ostream &o, const Template &i)
+{
+	std::cout << "Print some stuff from i";
+	return (o);
 }
