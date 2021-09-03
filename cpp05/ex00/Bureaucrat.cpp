@@ -36,6 +36,13 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src)
 	_grade = src._grade;
 }
 
+Bureaucrat
+	&Bureaucrat::operator=(Bureaucrat const &rhs)
+{
+	_grade = rhs._grade;
+	return (*this);
+}
+
 std::string const
 	Bureaucrat::getName(void) const
 {

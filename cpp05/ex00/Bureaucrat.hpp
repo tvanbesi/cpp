@@ -11,6 +11,7 @@ public:
 	Bureaucrat(std::string const name, unsigned int grade);
 	~Bureaucrat(void);
 	Bureaucrat(Bureaucrat const &src);
+	Bureaucrat			&operator=(Bureaucrat const &rhs);
 	std::string const	getName(void) const;
 	unsigned int		getGrade(void) const;
 	void				upgrade(void);
