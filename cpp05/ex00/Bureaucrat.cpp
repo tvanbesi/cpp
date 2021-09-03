@@ -6,11 +6,24 @@
 Bureaucrat::Bureaucrat(std::string const name, unsigned int grade)
 : _name(name)
 {
-	if (grade < 1)
+	try
+	{
+		if (grade < 1)
+			throw GradeTooHighException();
+		else if (grade > 150)
+			throw GradeTooLowException();
+		_grade = grade;
+	}
+	catch (GradeTooHighException &e)
+	{
+		std::cout << "Can't create Bureaucrat, grade is too high" << std::endl;
 		throw GradeTooHighException();
-	else if (grade > 150)
+	}
+	catch (GradeTooLowException &e)
+	{
+		std::cout << "Can't create Bureaucrat, grade is too low" << std::endl;
 		throw GradeTooLowException();
-	_grade = grade;
+	}
 }
 
 Bureaucrat::~Bureaucrat(void)
@@ -35,14 +48,53 @@ unsigned int
 	return (_grade);
 }
 
+void
+	Bureaucrat::upgrade(void)
+{
+	try
+	{
+		if (_grade == 1)
+			throw GradeTooHighException();
+		_grade--;
+	}
+	catch (GradeTooHighException &e)
+	{
+		std::cout << "Can't upgrade bureaucrat, grade is too high" << std::endl;
+		throw GradeTooHighException();
+	}
+}
+
+void
+	Bureaucrat::downgrade(void)
+{
+	try
+	{
+		if (_grade == 150)
+			throw GradeTooLowException();
+		_grade++;
+	}
+	catch (GradeTooLowException &e)
+	{
+		std::cout << "Can't downgrade bureaucrat, grade is too low" << std::endl;
+		throw GradeTooLowException();
+	}
+}
+
 const char
 	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Can't create Bureaucrat instance: grade is too high");
+	return ("Grade too high");
 }
 
 const char
 	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Can't create Bureaucrat instance: grade is too low");
+	return ("Grade too low");
+}
+
+std::ostream
+	&operator<<(std::ostream &o, const Bureaucrat &i)
+{
+	o << i.getName() << ", bureaucrat grade " << i.getGrade();
+	return (o);
 }

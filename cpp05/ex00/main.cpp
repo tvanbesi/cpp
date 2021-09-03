@@ -6,14 +6,23 @@
 int
 	main(void)
 {
-	Bureaucrat	bureaucrat1("Thomas", 75);
+	Bureaucrat	bureaucrat1("Thomas", 2);
+	Bureaucrat	bureaucrat2("Antoine", 150);
 
-	std::cout << bureaucrat1.getName() << " " << bureaucrat1.getGrade() << std::endl;
+	std::cout << bureaucrat1 << std::endl;
+	bureaucrat1.upgrade();
+	std::cout << bureaucrat1 << std::endl;
+	//Error
+	//bureaucrat1.upgrade();
+
+	std::cout << bureaucrat2 << std::endl;
+	//Error
+	//bureaucrat2.downgrade();
 	
-	//Runtime error: grade too high
-	//Bureaucrat	bureaucrat2("Jean", 0);
+	//Error
+	//Bureaucrat	bureaucrat3("Jean", 0);
 
-	//Runtime error: grade too low
-	//Bureaucrat	bureaucrat2("Henri", 151);
+	//Error
+	//Bureaucrat	bureaucrat4("Henri", 151);
 	return (0);
 }
