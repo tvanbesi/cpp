@@ -13,11 +13,13 @@ int
 	bureaucrat1.upgrade();
 	std::cout << bureaucrat1 << std::endl;
 	//Error
-	//bureaucrat1.upgrade();
+	bureaucrat1.upgrade();
+	std::cout << bureaucrat1 << std::endl;
 
 	std::cout << bureaucrat2 << std::endl;
 	//Error
-	//bureaucrat2.downgrade();
+	bureaucrat2.downgrade();
+	std::cout << bureaucrat2 << std::endl;
 	
 	//Error
 	//Bureaucrat	bureaucrat3("Jean", 0);

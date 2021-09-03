@@ -67,7 +67,6 @@ void
 	catch (GradeTooHighException &e)
 	{
 		std::cout << "Can't upgrade bureaucrat, grade is too high" << std::endl;
-		throw GradeTooHighException();
 	}
 }
 
@@ -83,7 +82,6 @@ void
 	catch (GradeTooLowException &e)
 	{
 		std::cout << "Can't downgrade bureaucrat, grade is too low" << std::endl;
-		throw GradeTooLowException();
 	}
 }
 
