@@ -9,7 +9,8 @@ public:
 
 	ClapTrap(std::string name);
 	~ClapTrap(void);
-
+	ClapTrap(ClapTrap const &src);
+	ClapTrap		&operator=(ClapTrap const &rhs);
 	void			setHitPoint(unsigned int value);
 	unsigned int	getHitPoint(void) const;
 	void			setEnergyPoint(unsigned int value);

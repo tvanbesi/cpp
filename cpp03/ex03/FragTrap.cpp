@@ -14,7 +14,19 @@ FragTrap::FragTrap (std::string name)
 FragTrap::~FragTrap (void)
 {
 	std::cout << "FragTrap " << getName() << " has been destroyed" << std::endl;
+}
 
+FragTrap::FragTrap(FragTrap const &src)
+: ClapTrap(src)
+{
+	std::cout << "FragTrap " << getName() << " has been created" << std::endl;
+}
+
+FragTrap
+	&FragTrap::operator=(FragTrap const &rhs)
+{
+	ClapTrap::operator=(rhs);
+	return (*this);
 }
 
 void

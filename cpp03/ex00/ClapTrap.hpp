@@ -9,6 +9,8 @@ public:
 
 	ClapTrap(std::string name);
 	~ClapTrap(void);
+	ClapTrap(ClapTrap const &src);
+	ClapTrap		&operator=(ClapTrap const &rhs);
 	unsigned int	getHitPoint(void);
 	void			setAttackDamage(unsigned int value);
 	unsigned int	getAttackDamage(void);

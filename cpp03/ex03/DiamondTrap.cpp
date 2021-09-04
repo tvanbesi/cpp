@@ -20,6 +20,22 @@ DiamondTrap::~DiamondTrap(void)
 	std::cout << "DiamonTrap " << getName() << " has been destroyed" << std::endl;
 }
 
+DiamondTrap::DiamondTrap(DiamondTrap const &src)
+:
+ClapTrap(src),
+FragTrap(src),
+ScavTrap(src)
+{
+	std::cout << "DiamondTrap " << getName() << " has been created" << std::endl;
+}
+
+DiamondTrap
+	&DiamondTrap::operator=(DiamondTrap const &rhs)
+{
+	ClapTrap::operator=(rhs);
+	return (*this);
+}
+
 void
 	DiamondTrap::attack(std::string const & target)
 {

@@ -14,7 +14,19 @@ ScavTrap::ScavTrap (std::string name)
 ScavTrap::~ScavTrap (void)
 {
 	std::cout << "ScavTrap " << getName() << " has been destroyed" << std::endl;
+}
 
+ScavTrap::ScavTrap(ScavTrap const &src)
+: ClapTrap(src)
+{
+	std::cout << "ScavTrap " << getName() << " has been created" << std::endl;
+}
+
+ScavTrap
+	&ScavTrap::operator=(ScavTrap const &rhs)
+{
+	ClapTrap::operator=(rhs);
+	return (*this);
 }
 
 void

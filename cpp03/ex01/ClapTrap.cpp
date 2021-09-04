@@ -17,6 +17,22 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "ClapTrap " << _name << " has been destroyed" << std::endl;
 }
 
+ClapTrap::ClapTrap(ClapTrap const &src)
+{
+	*this = src;
+	std::cout << "ClapTrap " << _name << " has been created" << std::endl;
+}
+
+ClapTrap
+	&ClapTrap::operator=(ClapTrap const &rhs)
+{
+	_name = rhs._name;
+	_hitPoint = rhs._hitPoint;
+	_energyPoint = rhs._energyPoint;
+	_attackDamage = rhs._attackDamage;
+	return (*this);
+}
+
 void
 	ClapTrap::setHitPoint(unsigned int value)
 {

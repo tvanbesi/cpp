@@ -11,6 +11,8 @@ public:
 
 	DiamondTrap(std::string name);
 	~DiamondTrap(void);
+	DiamondTrap(DiamondTrap const &src);
+	DiamondTrap	&operator=(DiamondTrap const &rhs);
 	void	attack(std::string const & target);
 	void	whoAmI(void) const;
 
