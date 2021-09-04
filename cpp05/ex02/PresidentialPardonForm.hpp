@@ -1,21 +1,24 @@
-#ifndef TEMPLATE_HPP
-# define TEMPLATE_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-# include <iostream>
+#include <string>
+#include <iostream>
 
-class Template {
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+class Form;
+
+class PresidentialPardonForm : public Form {
 
 public:
 
-	Template(void);
-	~Template(void);
-	Template(Template const &src);
-	Template	&operator=(Template const &rhs);
-
-private:
+	PresidentialPardonForm(std::string const &target);
+	~PresidentialPardonForm(void);
+	PresidentialPardonForm(PresidentialPardonForm const &src);
+	PresidentialPardonForm	&operator=(PresidentialPardonForm const &rhs);
+	virtual void			execute(Bureaucrat const &executor) const;
 
 };
-
-std::ostream	&operator<<(std::ostream &o, Template const &i);
 
 #endif

@@ -1,30 +1,43 @@
-#include <iostream>
+#include "PresidentialPardonForm.hpp"
 
-#include "Template.hpp"
-
-Template::Template(void)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target)
+: Form("PresidentialPardonForm", 25, 5, target)
 {
 }
 
-Template::~Template(void)
+PresidentialPardonForm::~PresidentialPardonForm(void)
 {
 }
 
-Template::Template(Template const &src)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src)
+: Form(src)
 {
-	//*this = src; //Shallow copy
 }
 
-Template
-	&Template::operator=(Template const &rhs)
+PresidentialPardonForm
+	&PresidentialPardonForm::operator=(PresidentialPardonForm const &rhs)
 {
-	//copy members
+	Form::operator=(rhs);
 	return (*this);
 }
 
-std::ostream
-	&operator<<(std::ostream &o, const Template &i)
+void
+	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << "Print some stuff from i";
-	return (o);
+	try
+	{
+		if (!getIsSigned())
+			throw FormNotSignedException();
+		else if (executor.getGrade() > getGradeToExec())
+			throw GradeTooLowException();
+		std::cout << getTarget() << " a ete pardonne par Zafod Beeblebrox" << std::endl;
+	}
+	catch (FormNotSignedException &e)
+	{
+		std::cout << "Can't execute form, it's not signed" << std::endl;
+	}
+	catch (GradeTooLowException &e)
+	{
+		std::cout << "Can't execute form, grade is too low" << std::endl;
+	}
 }

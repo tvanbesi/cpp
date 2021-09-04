@@ -1,30 +1,51 @@
-#include <iostream>
+#include "RobotomyRequestForm.hpp"
 
-#include "Template.hpp"
-
-Template::Template(void)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target)
+: Form("RobotomyRequestForm", 72, 45, target)
 {
 }
 
-Template::~Template(void)
+RobotomyRequestForm::~RobotomyRequestForm(void)
 {
 }
 
-Template::Template(Template const &src)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src)
+: Form(src)
 {
-	//*this = src; //Shallow copy
 }
 
-Template
-	&Template::operator=(Template const &rhs)
+RobotomyRequestForm
+	&RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs)
 {
-	//copy members
+	Form::operator=(rhs);
 	return (*this);
 }
 
-std::ostream
-	&operator<<(std::ostream &o, const Template &i)
+void
+	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << "Print some stuff from i";
-	return (o);
+	int	random_number;
+
+	try
+	{
+		if (!getIsSigned())
+			throw FormNotSignedException();
+		else if (executor.getGrade() > getGradeToExec())
+			throw GradeTooLowException();
+		std::cout << "*Bruits de perceuse*" << std::endl;
+		std::srand(std::time(0));
+		random_number = std::rand() % 2;
+		if (random_number == 1)
+			std::cout << "Robotomization rate" << std::endl;
+		else
+			std::cout << "Robotomization reussie" << std::endl;
+	}
+	catch (FormNotSignedException &e)
+	{
+		std::cout << "Can't execute form, it's not signed" << std::endl;
+	}
+	catch (GradeTooLowException &e)
+	{
+		std::cout << "Can't execute form, grade is too low" << std::endl;
+	}
 }

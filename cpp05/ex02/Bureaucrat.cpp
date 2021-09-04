@@ -95,6 +95,17 @@ void
 		std::cout << _name << " can't sign because grade " << _grade << " < " << f.getGradeToSign() << std::endl;
 }
 
+void
+	Bureaucrat::executeForm(Form &f) const
+{
+	if (!f.getIsSigned())
+		std::cout << _name << " can't execute form because it's not signed" << std::endl;
+	else if (_grade > f.getGradeToExec())
+		std::cout << _name << " can't execute form because his grade is too low" << std::endl;
+	else
+		std::cout << _name << " executes " << f.getName() << std::endl;
+}
+
 const char
 	*Bureaucrat::GradeTooHighException::what() const throw()
 {

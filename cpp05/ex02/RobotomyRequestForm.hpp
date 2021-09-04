@@ -1,21 +1,26 @@
-#ifndef TEMPLATE_HPP
-# define TEMPLATE_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-# include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+#include <iostream>
 
-class Template {
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+class Form;
+
+class RobotomyRequestForm : public Form {
 
 public:
 
-	Template(void);
-	~Template(void);
-	Template(Template const &src);
-	Template	&operator=(Template const &rhs);
-
-private:
+	RobotomyRequestForm(std::string const &target);
+	~RobotomyRequestForm(void);
+	RobotomyRequestForm(RobotomyRequestForm const &src);
+	RobotomyRequestForm	&operator=(RobotomyRequestForm const &rhs);
+	virtual void			execute(Bureaucrat const &executor) const;
 
 };
-
-std::ostream	&operator<<(std::ostream &o, Template const &i);
 
 #endif
