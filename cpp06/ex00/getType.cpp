@@ -73,6 +73,8 @@ static int
 int
 	getType(char *a)
 {
+	std::string	input;
+
 	if (isChar(a))
 		return (ISCHAR);
 	else if (isInt(a))
@@ -82,5 +84,12 @@ int
 	else if (isDouble(a))
 		return (ISDOUBLE);
 	else
+	{
+		input = a;
+		if (input == "-inff" || input == "inff" || input == "nanf")
+			return (ISFLOAT);
+		else if (input == "-inf" || input == "inf" || input == "nan")
+			return (ISDOUBLE);
 		return(ENOTYPE);
+	}
 }

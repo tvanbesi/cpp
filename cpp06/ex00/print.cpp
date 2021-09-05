@@ -16,7 +16,10 @@ static void
 	float	intPart;
 
 	std::cout << f;
-	if (modff(f, &intPart) == 0.0f)
+	if (f == std::numeric_limits<float>::infinity()
+	|| f == -std::numeric_limits<float>::infinity())
+		;
+	else if (modff(f, &intPart) == 0.0f)
 		std::cout << ".0f";
 	else
 		std::cout << "f";
@@ -29,7 +32,10 @@ static void
 	double	intPart;
 
 	std::cout << d;
-	if (modf(d, &intPart) == 0.0)
+	if (d == std::numeric_limits<double>::infinity()
+	|| d == -std::numeric_limits<double>::infinity())
+		;
+	else if (modf(d, &intPart) == 0.0)
 		std::cout << ".0";
 	std::cout << std::endl;
 }

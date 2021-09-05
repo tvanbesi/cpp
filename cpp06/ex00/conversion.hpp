@@ -12,7 +12,8 @@ typedef enum	e_type
 	ISCHAR,
 	ISINT,
 	ISFLOAT,
-	ISDOUBLE
+	ISDOUBLE,
+	ISSPECIAL
 }				t_type;
 
 int		getType(char *a);
