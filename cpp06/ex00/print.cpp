@@ -18,7 +18,7 @@ static void
 	std::cout << f;
 	if (f == std::numeric_limits<float>::infinity()
 	|| f == -std::numeric_limits<float>::infinity())
-		;
+		std::cout << "f";
 	else if (modff(f, &intPart) == 0.0f)
 		std::cout << ".0f";
 	else
@@ -100,8 +100,9 @@ void
 	else
 		std::cout << "impossible" << std::endl;
 	std::cout << "float: ";
-	if (d >= std::numeric_limits<float>::min() && d <= std::numeric_limits<float>::max())
-		std::cout << static_cast<float>(d) << std::endl;
+	if (d != d || d == std::numeric_limits<double>::infinity() || d == -std::numeric_limits<double>::infinity()
+	|| (d >= std::numeric_limits<float>::min() && d <= std::numeric_limits<float>::max()))
+		show_f(static_cast<float>(d));
 	else
 		std::cout << "impossible" << std::endl;
 	std::cout << "double: ";
