@@ -15,5 +15,12 @@ int
 	Form	*rrf;
 
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+	Bureaucrat	bureaucrat1("Thomas", 1);
+	bureaucrat1.signForm(*rrf);
+	rrf->beSigned(bureaucrat1);
+	bureaucrat1.executeForm(*rrf);
+	rrf->execute(bureaucrat1);
+
 	return (0);
 }
