@@ -53,21 +53,21 @@ void
 		(void)ra;
 		std::cout << "A" << std::endl;
 	}
-	catch (std::bad_cast &bc) {}
+	catch (...) {}
 	try
 	{
 		B	&rb = dynamic_cast<B &>(p);
 		(void)rb;
 		std::cout << "B" << std::endl;
 	}
-	catch (std::bad_cast &bc) {}
+	catch (...) {}
 	try
 	{
 		C	&rc = dynamic_cast<C &>(p);
 		(void)rc;
 		std::cout << "C" << std::endl;
 	}
-	catch (std::bad_cast &bc) {}
+	catch (...) {}
 }
 
 int
