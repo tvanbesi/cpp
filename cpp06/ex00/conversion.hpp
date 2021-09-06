@@ -5,6 +5,7 @@
 #include <limits>
 #include <string>
 #include <cmath>
+#include <cstdlib>
 
 typedef enum	e_type
 {

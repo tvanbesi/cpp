@@ -3,7 +3,7 @@ SRCS		=	main.cpp \
 				print.cpp
 OBJS		= ${SRCS:.cpp=.o}
 CPPC		= clang++
-CPPFLAGS	= -Wall -Wextra -Werror
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 NAME		= conversion
 RM			= rm -f
 

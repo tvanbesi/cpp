@@ -16,11 +16,11 @@ int
 	if (type == ISCHAR)
 		convert_c(argv[1][0]);
 	else if (type == ISINT)
-		convert_i(std::stoi(input));
+		convert_i(atoi(argv[1]));
 	else if (type == ISFLOAT)
-		convert_f(std::stof(input));
+		convert_f(static_cast<float>(strtod(argv[1], NULL)));
 	else if (type == ISDOUBLE)
-		convert_d(std::stod(input));
+		convert_d(strtod(argv[1], NULL));
 	else
 	{
 		std::cout << "Invalid input" << std::endl;
