@@ -35,5 +35,6 @@ int
 	raw = serialize(data);
 	ptr = deserialize(raw);
 	std::cout << ptr << "\t" << ptr->_n << "\t" << ptr->_str << std::endl;
+	delete data;
 	return (0);
 }
