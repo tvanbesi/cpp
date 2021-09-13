@@ -32,7 +32,7 @@ int
 		++it;
 	}
 
-	std::stack<int>	s(mstack);
+	std::stack<int>		s(mstack);
 	MutantStack<int>	mstack2 = mstack;
 
 	it = mstack2.begin();
@@ -44,6 +44,21 @@ int
 	{
 		std::cout << *it << std::endl;
 		++it;
+	}
+
+	MutantStack<double>	dstack;
+
+	dstack.push(11.5);
+	dstack.push(42.42);
+
+	MutantStack<double>::iterator dit = dstack.begin();
+	MutantStack<double>::iterator dite = dstack.end();
+	++dit;
+	--dit;
+	while (dit != dite)
+	{
+		std::cout << *dit << std::endl;
+		++dit;
 	}
 	return (0);
 }
