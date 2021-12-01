@@ -1,28 +1,28 @@
 # cpp
 
-CPP00
+CPP00:
 Namespace, class, member functions, stdio stream, initialization lists, static, const
 
-CPP01
+CPP01:
 Memory allocation, references, pointers to members, switch
 
-CPP02
+CPP02:
 Polymorphisme ad-hoc, overloads et classes canoniques
 
-CPP03
+CPP03:
 Inheritance
 
-CPP04
+CPP04:
 Subtype polymorphism, abstract classes, interfaces
 
-CPP05
+CPP05:
 Répétition et Exceptions
 
-CPP06
+CPP06:
 C++ Casts
 
-CPP07
+CPP07:
 c++ Templates
 
-CPP08
+CPP08:
 Templated containers, iterators, algorithms
